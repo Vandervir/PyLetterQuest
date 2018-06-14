@@ -1,0 +1,4 @@
+pytesseract
+win32gui
+numpy
+cv2

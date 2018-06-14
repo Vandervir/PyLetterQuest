@@ -1,42 +1,9 @@
 # -*- coding: utf-8 -*-
-import logging
-import os
 
-from configuration import Configuration
 from database import Database
 from dictionary_tree import TreeCreator
 from game_control import GameControl
-from mouse import Mouse
 from text_recognition import TextRecognition
-
-
-def init():
-    logging.basicConfig(filename='error.log', level=logging.DEBUG)
-
-def test_buttons():
-    c = Configuration()
-    m = Mouse()
-    import time
-
-    for ix in [Configuration.BUTTON_RESUME_GAME, Configuration.BUTTON_ACCEPT_TILES, Configuration.BUTTON_SHUFFLE_TILES]:
-        x,y = c.get_button_coords(ix)
-        print("{}. - {} {}".format(ix, x, y))
-        m.mouse.move(x, y)
-        time.sleep(1)
-    print()
-
-def test_game_control():
-    gc = GameControl()
-    gc.resume_game()
-
-def test_database_search():
-    d = Database()
-    res = d.find_longest_word('ASDFGHJKL')
-    print(res)
-
-def test_recognize():
-    a = TextRecognition()
-    a.recognize_tiles()
 
 
 def test_game():

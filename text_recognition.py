@@ -35,12 +35,11 @@ class TextRecognition:
                 if letter.__len__() > 1:
                     continue
                 self.letters = "".join((self.letters, letter))
-                self.add_letter( x, y, letter)
+                self.add_letter(x, y, letter)
                 print('tile_{}_{}: {}'.format(x, y, letter))
 
     def get_letters(self):
         return self.letters
-
 
     def get_letters_map(self):
         return self.map
