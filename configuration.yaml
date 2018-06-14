@@ -1,0 +1,150 @@
+config:
+  game:
+    tiles_number_horizontal: 5
+    tiles_number_veritical: 3
+  display:
+    #location of game window
+    left_top_corner_x: 0
+    left_top_corner_y: 0
+    #game resolution
+    game_resolution_width: 800
+    game_resolution_height: 600
+    #fix for windows border window
+    fix_top: 26
+    fix_right: 1
+    fix_bottom: 1
+    fix_left: 1
+  ranges:
+    tile_1_1:
+      x1: 35
+      y1: 59.75
+      x2: 40
+      y2: 65.75
+    tile_2_1:
+      x1: 41
+      y1: 59.75
+      x2: 46
+      y2: 65.75
+    tile_3_1:
+      x1: 47.5
+      y1: 59.75
+      x2: 52.5
+      y2: 65.75
+    tile_4_1:
+      x1: 53.625
+      y1: 59.75
+      x2: 58.625
+      y2: 65.75
+    tile_5_1:
+      x1: 60.25
+      y1: 59.75
+      x2: 64.625
+      y2: 65.75
+    tile_1_2:
+      x1: 34.875
+      y1: 69
+      x2: 39.875
+      y2: 74
+    tile_2_2:
+      x1: 41
+      y1: 69
+      x2: 46
+      y2: 74
+    tile_3_2:
+      x1: 47.5
+      y1: 69
+      x2: 52.5
+      y2: 74
+    tile_4_2:
+      x1: 53.625
+      y1: 69
+      x2: 58.625
+      y2: 74
+    tile_5_2:
+      x1: 60.25
+      y1: 69
+      x2: 64.625
+      y2: 74
+    tile_1_3:
+      x1: 35
+      y1: 78.5
+      x2: 40
+      y2: 84
+    tile_2_3:
+      x1: 41
+      y1: 78.5
+      x2: 46
+      y2: 84
+    tile_3_3:
+      x1: 47.5
+      y1: 78.5
+      x2: 52.5
+      y2: 84
+    tile_4_3:
+      x1: 53.625
+      y1: 78.5
+      x2: 58.625
+      y2: 84
+    tile_5_3:
+      x1: 60.25
+      y1: 78.5
+      x2: 64.625
+      y2: 84
+  buttons:
+    accept_tiles:
+      x: 72
+      y: 67
+    shuffle_tiles:
+      x: 27
+      y: 67
+    resume_game:
+      x: 67.5
+      y: 54
+    tile_1_1:
+      x: 37
+      y: 62.75
+    tile_2_1:
+      x: 43
+      y: 62.75
+    tile_3_1:
+      x: 49.5
+      y: 62.75
+    tile_4_1:
+      x: 55.8
+      y: 62.75
+    tile_5_1:
+      x: 62
+      y: 62.75
+    tile_1_2:
+      x: 37
+      y: 72
+    tile_2_2:
+      x: 43.3
+      y: 72
+    tile_3_2:
+      x: 49.5
+      y: 72
+    tile_4_2:
+      x: 55.8
+      y: 72
+    tile_5_2:
+      x: 62
+      y: 72
+    tile_1_3:
+      x: 37
+      y: 81
+    tile_2_3:
+      x: 43.3
+      y: 81
+    tile_3_3:
+      x: 49.5
+      y: 81
+    tile_4_3:
+      x: 55.8
+      y: 81
+    tile_5_3:
+      x: 62
+      y: 81
+
+
+
