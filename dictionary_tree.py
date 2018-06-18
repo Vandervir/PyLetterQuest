@@ -1,5 +1,7 @@
-import itertools
 from timeit import default_timer as timer
+
+from word_classification import WordClassification
+
 
 class DictionaryTree:
     def __init__(self, letter, is_end=False, word=None):
@@ -10,13 +12,12 @@ class DictionaryTree:
 
 
 class TreeCreator:
-    def __init__(self, dictionary='dictionary.txt', database='database.db'):
+    def __init__(self, dictionary='dictionary.txt'):
         self.dictionary = dictionary
+        self.wc = WordClassification()
         self.read_words()
 
-    def insert(self, root, letters, word=None):
-        if word is None:
-            word = letters
+    def insert(self, root, letters, word):
         letter = letters[:1]
         left_letters = letters[1:]
         if not root.children.has_key(letter):
@@ -33,38 +34,29 @@ class TreeCreator:
         fo = open(self.dictionary, "r")
         for line in fo.readlines():
             line = line.strip()
-            sorted_letters = ''.join(sorted(line))
-            # print(sorted_letters)
-            self.insert(self.root, sorted_letters, line)
+            self.insert(self.root, line, line)
         fo.close()
 
     def search_for_word(self, root, letters):
-        letter = letters[:1]
-        left_letters = letters[1:]
-        if root.is_end is True:
-            self.word_classification(root.word)
-        for l in self.root.children:
-            if l == letter and left_letters.__len__() > 0 and root.children.has_key(letter):
+        if letters is None or letters.__len__() == 0:
+            return
+        for letter in root.children:
+            if letter in letters:
+                if root.children[letter].is_end:
+                    self.wc.run(root.children[letter].word)
+                    # self.word_classification(root.children[letter].word)
+                    self.found.append(root.children[letter].word)
+                left_letters = letters[:]
+                left_letters.remove(letter)
                 self.search_for_word(root.children[letter], left_letters)
 
-    def word_classification(self, word):
-        if self.current_word.__len__() < word.__len__():
-            self.current_word = word
-
     def search(self, letters):
-        # sorted_letters = ''.join(sorted(letters))
-        i = 0
         self.current_word = ''
-        self.found = dict()
+        self.found = []
+        self.wc.new_search()
 
         start = timer()
-        for r in reversed(range(2, letters.__len__() + 1)):
-            for a in itertools.combinations(letters, r):
-                sl = ''.join(sorted(a))
-                res = self.search_for_word(self.root, sl)
-                if res is not None:
-                    print(res)
-
+        self.search_for_word(self.root, sorted(letters))
         end = timer()
-        print('{} finding word  {}'.format(end - start, self.current_word))
-        return self.current_word
+        print('{} finding word  {}'.format(end - start, self.wc.get_word()))
+        return self.wc.get_word()
