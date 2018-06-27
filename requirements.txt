@@ -1,3 +1,4 @@
+scikit-image
 pytesseract
 win32gui
 numpy

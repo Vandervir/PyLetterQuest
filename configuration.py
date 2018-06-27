@@ -15,7 +15,12 @@ class Configuration:
 
     BUTTON_RESUME_GAME = 'resume_game'
     BUTTON_ACCEPT_TILES = 'accept_tiles'
+    BUTTON_CANCEL_TILES = 'cancel_tiles'
     BUTTON_SHUFFLE_TILES = 'shuffle_tiles'
+    BUTTON_EXIT_SHOP = 'exit_shop'
+    BUTTON_CHEST_REWARD_1 = 'chest_reward_1'
+    BUTTON_CHEST_REWARD_2 = 'chest_reward_2'
+    BUTTON_CHEST_REWARD_3 = 'chest_reward_3'
     BUTTON_TILE_1_1 = 'tile_1_1'
     BUTTON_TILE_2_1 = 'tile_2_1'
     BUTTON_TILE_3_1 = 'tile_3_1'

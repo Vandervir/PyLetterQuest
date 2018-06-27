@@ -1,5 +1,5 @@
 import re
-
+import collections
 
 class WordClassification:
 
@@ -7,6 +7,7 @@ class WordClassification:
         self.new_search()
 
     def new_search(self):
+        self.all_words = dict()
         self.best_word = ''
         self.best_points = 0
 
@@ -21,6 +22,7 @@ class WordClassification:
         self._get_two_point_letters()
         self._get_three_point_letters()
         self._get_letter_combo_points()
+        self.all_words[self.points] = self.word
         if self.points > self.best_points:
             print('new best word: {}'.format(word))
             self.best_points = self.points
@@ -49,4 +51,10 @@ class WordClassification:
     def _get_letter_combo_points(self):
         matches = re.finditer(r"(\w)\1+", self.word)
         for matchNum, match in enumerate(matches):
-            self.points +=  5
+            self.points += 5
+
+    def get_next_word(self):
+        if not isinstance(self.all_words, collections.OrderedDict):
+            self.all_words = collections.OrderedDict(sorted(self.all_words.items()))
+        length, word = self.all_words.popitem()
+        return word

@@ -4,7 +4,7 @@ config:
     tiles_number_veritical: 3
   display:
     #location of game window
-    left_top_corner_x: 0
+    left_top_corner_x: 1920
     left_top_corner_y: 0
     #game resolution
     game_resolution_width: 800
@@ -94,6 +94,21 @@ config:
     accept_tiles:
       x: 72
       y: 67
+    cancel_tiles:
+      x: 42.25
+      y: 29
+    exit_shop:
+      x: 76.25
+      y: 60.5
+    chest_reward_1:
+      x: 64.65
+      y: 60.8
+    chest_reward_2:
+      x: 64.65
+      y: 67.5
+    chest_reward_3:
+      x: 64.65
+      y: 74
     shuffle_tiles:
       x: 27
       y: 67

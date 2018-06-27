@@ -11,6 +11,8 @@ class TextRecognition:
 
     def __init__(self):
         self.PYTESSERACT_CONFIG = '--psm 13 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        self.PYTESSERACT_CONFIG3 = '--psm 8 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        self.PYTESSERACT_CONFIG2 = '--psm 13 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz?'
         os.putenv("TESSDATA_PREFIX", os.path.dirname(os.path.abspath(__file__)))
         self.c = Configuration()
         self.gc = GameControl()
@@ -37,6 +39,12 @@ class TextRecognition:
                 self.letters = "".join((self.letters, letter))
                 self.add_letter(x, y, letter)
                 print('tile_{}_{}: {}'.format(x, y, letter))
+
+    def detect_text(self, region, resume=True):
+        if resume:
+            self.gc.resume_game()
+        screen = grab_screen(region)
+        return pytesseract.image_to_string(image=screen, config=self.PYTESSERACT_CONFIG3)
 
     def get_letters(self):
         return self.letters

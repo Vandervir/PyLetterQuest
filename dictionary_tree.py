@@ -44,7 +44,6 @@ class TreeCreator:
             if letter in letters:
                 if root.children[letter].is_end:
                     self.wc.run(root.children[letter].word)
-                    # self.word_classification(root.children[letter].word)
                     self.found.append(root.children[letter].word)
                 left_letters = letters[:]
                 left_letters.remove(letter)
@@ -60,3 +59,6 @@ class TreeCreator:
         end = timer()
         print('{} finding word  {}'.format(end - start, self.wc.get_word()))
         return self.wc.get_word()
+
+    def get_next_word(self):
+        return self.wc.get_next_word()

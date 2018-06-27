@@ -31,6 +31,18 @@ class Database:
 
         self.cur = self.conn.cursor()
 
+    def get_random_word(self):
+        self.cur.execute('SELECT word, word_length FROM dictionary ORDER BY RANDOM() LIMIT 1')
+        return self.cur.fetchone()
+
+    def try_find_words(self, letters, length, skip_letters):
+        # query  ='SELECT word, word_length FROM dictionary WHERE word like \'{}\' and word_length = {}'.format(letters, length)
+        query  ='SELECT word, word_length FROM dictionary WHERE word like \'{}\''.format(letters)
+        for letter in skip_letters:
+            query += ' AND word not like \'%{}%\''.format(letter)
+        self.cur.execute(query + ' LIMIT 1000')
+        return self.cur.fetchall()
+
     @staticmethod
     def diff(first, second):
         second = set(second)
